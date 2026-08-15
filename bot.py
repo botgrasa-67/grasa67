@@ -1,18 +1,16 @@
 import os
+import random
 import discord
 from discord.ext import commands
-import random
 
-# Configuración de permisos (Intents)
 intents = discord.Intents.default()
-intents.message_content = True  # Para que el bot lea los mensajes
+intents.message_content = True
 
 bot = commands.Bot(command_prefix="!", intents=intents)
 
 @bot.event
 async def on_ready():
     print(f"¡Bot conectado con éxito como {bot.user}!")
-    # Cambia la actividad del bot en Discord
     await bot.change_presence(activity=discord.Game(name="Grasa 67 ⚡ | !ayuda"))
 
 # Comando 1: Medidor de Aura
@@ -28,21 +26,20 @@ async def aura(ctx, usuario: discord.Member = None):
         
     await ctx.send(msg)
 
-# Comando 2: Respuesta con la imagen de Juanfer
+# Comando 2: Juanfer con texto e imagen directa
 @bot.command()
 async def juanfer(ctx):
-    await ctx.send("https://static2.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/f0/86/zoHTLrgTPB8E.gif")
+    await ctx.send("🎩 **¡Que la gente crea!**\nhttps://i.postimg.cc/L5v8v2XN/juanfer.gif")
+
 # Respuestas automáticas por palabras clave
 @bot.event
 async def on_message(message):
     if message.author == bot.user:
         return
 
-    # Si alguien pone "ip", responde automático
     if message.content.lower() == "ip":
         await message.channel.send("🌐 La IP del server es: `pronto...`")
 
     await bot.process_commands(message)
 
-# Pegá tu Token entre las comillas
 bot.run(os.getenv("DISCORD_TOKEN"))
