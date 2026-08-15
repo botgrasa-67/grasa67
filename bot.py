@@ -46,4 +46,4 @@ bot.run(os.getenv("DISCORD_TOKEN"))
 
 @bot.command()
 async def miguel(ctx):
-    await ctx.send("🗿 **MIGUEL EL GIGACHAD**\https://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/70/e8/UBZsJ60d.gif")
+    await ctx.send("🗿 **MIGUEL EL CHAD**\https://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/70/e8/UBZsJ60d.gif")
