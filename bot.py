@@ -29,7 +29,7 @@ async def aura(ctx, usuario: discord.Member = None):
 # Comando 2: Juanfer con texto e imagen directa
 @bot.command()
 async def juanfer(ctx):
-    await ctx.send("https://media1.tenor.com/m/b1hLitFQ5jMAAAAd/quintero-river-plate.gif")
+    await ctx.send("https://static2.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/f0/86/zoHTLrgTPB8E.gif")
 
 # Respuestas automáticas por palabras clave
 @bot.event
