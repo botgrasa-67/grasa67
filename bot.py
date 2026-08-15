@@ -26,10 +26,15 @@ async def aura(ctx, usuario: discord.Member = None):
         
     await ctx.send(msg)
 
-# Comando 2: Juanfer con texto e imagen directa
+# Comando 2: Juanfer
 @bot.command()
 async def juanfer(ctx):
     await ctx.send("https://static2.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/f0/86/zoHTLrgTPB8E.gif")
+
+# Comando 3: Miguel GigaChad
+@bot.command()
+async def miguel(ctx):
+    await ctx.send("🗿 **MIGUEL EL CHAD**\nhttps://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/70/e8/UBZsJ60d.gif")
 
 # Respuestas automáticas por palabras clave
 @bot.event
@@ -42,8 +47,5 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
+# IMPORTANTE: bot.run SIEMPRE va al final de todo
 bot.run(os.getenv("DISCORD_TOKEN"))
-
-@bot.command()
-async def miguel(ctx):
-    await ctx.send("🗿 **MIGUEL EL CHAD**\https://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/70/e8/UBZsJ60d.gif")
