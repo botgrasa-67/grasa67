@@ -46,4 +46,4 @@ async def on_message(message):
     await bot.process_commands(message)
 
 # Pegá tu Token entre las comillas
-bot.run(os.getenv("MTUzODI5ODMyMDgxMDkzODQwMQ.GROUWc.j8xL-4J6X9WGaeHZAvzATex4KWdyiOs4J69Z1c"))
+bot.run(os.getenv("DISCORD_TOKEN"))
