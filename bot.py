@@ -23,12 +23,14 @@ async def ayuda(ctx):
     )
     embed.add_field(name="!juanfer", value="Manda el golazo de Juanfer en Madrid.", inline=False)
     embed.add_field(name="!miguel", value="Manda la foto del Chad Miguel.", inline=False)
+    embed.add_field(name="!modooso", value="Fotos e hitos del Oso Pratto.", inline=False)
+    embed.add_field(name="!8ball [pregunta]", value="Preguntale lo que quieras al bot.", inline=False)
     embed.add_field(name="!aura [@usuario]", value="Mide el aura de alguien.", inline=False)
     embed.add_field(name="!penal [izquierda/centro/derecha]", value="Pateale un penal al Oso.", inline=False)
     embed.add_field(name="!frase", value="Tira una frase épica.", inline=False)
     await ctx.send(embed=embed)
 
-# Comando: Medidor de Aura
+# Comando 1: Medidor de Aura
 @bot.command()
 async def aura(ctx, usuario: discord.Member = None):
     usuario = usuario or ctx.author
@@ -41,17 +43,44 @@ async def aura(ctx, usuario: discord.Member = None):
         
     await ctx.send(msg)
 
-# Comando: Juanfer
+# Comando 2: Juanfer
 @bot.command()
 async def juanfer(ctx):
     await ctx.send("https://static2.klipy.com/ii/4e7bea9f7a3371424e6c16ebc93252fe/f0/86/zoHTLrgTPB8E.gif")
 
-# Comando: Miguel
+# Comando 3: Miguel GigaChad
 @bot.command()
 async def miguel(ctx):
     await ctx.send("🗿 **MIGUEL EL CHAD**\nhttps://static2.klipy.com/ii/d6b0ce929193df3c242ac34b5654d2ce/70/e8/UBZsJ60d.gif")
 
-# Comando: Juego de Penal
+# Comando 4: Modo Oso
+@bot.command()
+async def modooso(ctx):
+    fotos_oso = [
+        "https://i.postimg.cc/L5v8v2XN/juanfer.gif",
+        "https://media.giphy.com/media/131AAt2qG8qSkg/giphy.gif"
+    ]
+    await ctx.send(f"🐻 **¡MODO OSO ACTIVADO!**\n{random.choice(fotos_oso)}")
+
+# Comando 5: Bola 8 de la suerte
+@bot.command(name="8ball")
+async def ocho_ball(ctx, *, pregunta: str = None):
+    if not pregunta:
+        await ctx.send("🎱 Tenés que hacerme una pregunta. Ejemplo: `!8ball ¿Hoy se gana?`")
+        return
+
+    respuestas = [
+        "Totalmente, la historia me avala. 🐻",
+        "Que la gente crea, porque tiene con qué creer. 🎩",
+        "Ni en pedo. 💀",
+        "Sacá del medio, obvio que sí. 🔴⚪🔴",
+        "No sabría decirte, preguntale a Gallardo.",
+        "Las probabilidades están a tu favor.",
+        "Definitivamente no."
+    ]
+    await ctx.send(f"🎱 **Pregunta:** {pregunta}\n💬 **El Oso dice:** {random.choice(respuestas)}")
+
+# Comando 6: Juego de Penal
 @bot.command()
 async def penal(ctx, direccion: str = None):
     if not direccion or direccion.lower() not in ["izquierda", "centro", "derecha"]:
@@ -65,9 +94,9 @@ async def penal(ctx, direccion: str = None):
     if pateo == atajada:
         await ctx.send(f"🧤 **¡ATAJÓ EL OSO!** Se tiró a la **{atajada}** y te la sacó al córner.")
     else:
-        await ctx.send(f"⚽ **¡GOOOOOOOL!** Pateaste a la **{pateo}** y el Oso se tiró a la **{atajada}**. Modosodefinitivo.")
+        await ctx.send(f"⚽ **¡GOOOOOOOL!** Pateaste a la **{pateo}** y el Oso se tiró a la **{atajada}**. Modooso definitivo.")
 
-# Comando: Frases
+# Comando 7: Frases
 @bot.command()
 async def frase(ctx):
     frases = [
@@ -89,5 +118,5 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-# Siempre al final
+# IMPORTANTE: bot.run SIEMPRE va al final de todo
 bot.run(os.getenv("DISCORD_TOKEN"))
